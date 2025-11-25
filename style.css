@@ -1,0 +1,354 @@
+:root {
+    --color-bg: #0A0A0A;
+    --color-bg-card: #000000;
+    --color-primary: #0070FF;
+    --color-primary-soft: rgba(0, 112, 255, 0.35);
+    --color-gold: #D4AF37;
+    --color-text-main: #F5F5F5;
+    --color-text-muted: #929292;
+    --color-border: rgba(255, 255, 255, 0.08);
+    --radius-card: 24px;
+    --radius-btn: 10px;
+    --shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.7);
+    --transition-fast: 0.18s ease-out;
+    --transition-med: 0.28s ease-out;
+}
+
+/* RESET BÁSICO */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, rgba(0, 112, 255, 0.18), transparent 55%),
+                radial-gradient(circle at bottom, rgba(212, 175, 55, 0.16), transparent 60%),
+                var(--color-bg);
+    color: var(--color-text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.hub {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.18), transparent 55%),
+                radial-gradient(circle at bottom right, rgba(0, 112, 255, 0.2), transparent 60%),
+                linear-gradient(145deg, #050505, #020202);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-border);
+    padding: 22px 18px 26px;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+}
+
+.hub-glow {
+    position: absolute;
+    inset: -30%;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(212, 175, 55, 0.14), transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(0, 112, 255, 0.16), transparent 55%);
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* CABECERA */
+.hub-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.hub-logo {
+    width: 68px;
+    height: 68px;
+    border-radius: 20px;
+    object-fit: cover;
+    background: radial-gradient(circle at 30% 0%, rgba(212, 175, 55, 0.35), transparent 65%);
+    box-shadow:
+        0 0 16px rgba(212, 175, 55, 0.5),
+        0 0 26px rgba(0, 0, 0, 0.95);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.hub-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hub-title {
+    font-family: "Poppins", system-ui, sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.hub-subtitle {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+/* HERO / PORTADA */
+.hub-hero {
+    margin-bottom: 18px;
+}
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 170px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-image: url("assets/hero-mraddamz.jpg"); /* Cambia esta ruta por tu portada */
+    background-size: cover;
+    background-position: center;
+    filter: saturate(1.1) contrast(1.08);
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.9),
+        0 0 26px rgba(0, 112, 255, 0.35);
+}
+
+.hero-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.65));
+    mix-blend-mode: multiply;
+}
+
+/* SECCIONES DE LINKS */
+.links-section {
+    margin-bottom: 18px;
+}
+
+.section-title {
+    font-family: "Poppins", system-ui, sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-text-muted);
+    margin-bottom: 10px;
+}
+
+/* GRUPOS DE LINKS */
+.links-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* BOTONES DE LINK */
+.link-btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    width: 100%;
+    padding: 11px 13px;
+    border-radius: var(--radius-btn);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.04), transparent 65%),
+                rgba(7, 7, 7, 0.98);
+    color: var(--color-text-main);
+    font-size: 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast),
+        background var(--transition-med);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+}
+
+.link-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background: radial-gradient(circle at 0% 0%, rgba(0, 112, 255, 0.2), transparent 55%);
+    transition: opacity var(--transition-med);
+    pointer-events: none;
+}
+
+.link-label {
+    font-weight: 500;
+}
+
+.link-tag {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+/* ESTADOS HOVER/FOCUS */
+.link-btn:hover,
+.link-btn:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(0, 112, 255, 0.7);
+    box-shadow:
+        0 0 16px rgba(0, 112, 255, 0.6),
+        0 16px 36px rgba(0, 0, 0, 0.9);
+}
+
+.link-btn:hover::before,
+.link-btn:focus-visible::before {
+    opacity: 1;
+}
+
+/* BOTÓN PRINCIPAL (DESTACADO) */
+.link-btn-primary {
+    border-color: rgba(0, 112, 255, 0.85);
+    background:
+        linear-gradient(135deg, rgba(0, 112, 255, 0.35), rgba(0, 0, 0, 0.9)),
+        #02040A;
+    box-shadow:
+        0 0 18px var(--color-primary-soft),
+        0 20px 40px rgba(0, 0, 0, 0.95);
+}
+
+.link-btn-primary::before {
+    background:
+        radial-gradient(circle at 10% 0%, rgba(212, 175, 55, 0.4), transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(0, 112, 255, 0.3), transparent 55%);
+}
+
+.link-btn-primary:hover,
+.link-btn-primary:focus-visible {
+    box-shadow:
+        0 0 24px rgba(212, 175, 55, 0.7),
+        0 24px 50px rgba(0, 0, 0, 1);
+    border-color: var(--color-gold);
+}
+
+/* CTA WHATSAPP */
+.link-btn-cta {
+    border-color: rgba(212, 175, 55, 0.8);
+    background:
+        linear-gradient(135deg, rgba(212, 175, 55, 0.26), rgba(0, 0, 0, 0.95)),
+        #050403;
+    box-shadow:
+        0 0 16px rgba(212, 175, 55, 0.65),
+        0 18px 40px rgba(0, 0, 0, 0.95);
+}
+
+.link-btn-cta:hover,
+.link-btn-cta:focus-visible {
+    box-shadow:
+        0 0 26px rgba(212, 175, 55, 0.9),
+        0 24px 55px rgba(0, 0, 0, 1);
+}
+
+/* BOTONES DESHABILITADOS (EPK / PRESSKIT / PLATAFORMAS BLOQUEADAS) */
+.link-btn-disabled {
+    cursor: default;
+    border-style: dashed;
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(6, 6, 6, 0.92);
+    color: rgba(245, 245, 245, 0.65);
+    box-shadow: none;
+}
+
+.link-btn-disabled::before {
+    display: none;
+}
+
+.link-btn-disabled .link-tag {
+    color: rgba(146, 146, 146, 0.8);
+}
+
+.link-btn-disabled:hover,
+.link-btn-disabled:focus-visible {
+    transform: none;
+    box-shadow: none;
+}
+
+/* TARJETA DE BOOKING */
+.booking-card {
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    padding: 10px 10px 12px;
+    background: radial-gradient(circle at top, rgba(212, 175, 55, 0.08), transparent 60%),
+                rgba(3, 3, 3, 0.98);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.booking-text {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+/* FOOTER */
+.hub-footer {
+    margin-top: 4px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.footer-text {
+    font-size: 0.7rem;
+    text-align: center;
+    color: var(--color-text-muted);
+}
+
+.footer-text span {
+    color: var(--color-gold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* ACCESIBILIDAD FOCUS */
+:focus-visible {
+    outline: 2px solid rgba(0, 112, 255, 0.8);
+    outline-offset: 2px;
+}
+
+/* RESPONSIVE */
+@media (min-width: 480px) {
+    .hub {
+        padding: 24px 22px 28px;
+    }
+
+    .hero-image {
+        height: 190px;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        padding: 30px;
+    }
+
+    .hub {
+        max-width: 520px;
+    }
+
+    .hub-title {
+        font-size: 1.65rem;
+    }
+
+    .hero-image {
+        height: 210px;
+    }
+}
